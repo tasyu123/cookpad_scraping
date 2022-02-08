@@ -1,12 +1,10 @@
-import os
+
 import pandas as pd
 import requests
 from bs4 import BeautifulSoup
-import time
 from more_itertools import chunked
 
 
-os.chdir('C:\スクレイピング')
 
 df=pd.read_csv("クックパッド.csv")
 
@@ -25,13 +23,13 @@ for keyword in word_list:
     
     for result in soup.find_all(class_='recipe-title')[0:10]:
         result_list.append(result.text)
-        time.sleep(0.2)
+        
     
     
         
         
     
-    time.sleep(0.5)
+    
 mylist=list(chunked(result_list,10))
 
 for j in range(len(df["キーワード"])):
